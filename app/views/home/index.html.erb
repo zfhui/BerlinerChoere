@@ -13,4 +13,9 @@
       id: 'zfhui.28480987',
       accessToken: 'pk.eyJ1IjoiemZodWkiLCJhIjoiNWE2ZWMxNzM1NTgxNjNhODA0ZjcxOTljNzUxZWYzY2QifQ.1tLbelkQIIem8djvVjEKXg'
   }).addTo(map);
+
+  <% @choirs.each do |choir| %>
+    L.marker([<%= choir.latitude %>, <%= choir.longitude %>]).addTo(map);
+  <% end %>
+
 </script>
