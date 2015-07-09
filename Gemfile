@@ -52,6 +52,8 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'simple_form'
+
 gem "font-awesome-sass"
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'autoprefixer-rails'

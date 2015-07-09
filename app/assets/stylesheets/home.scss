@@ -2,4 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#map { height: 480px; }
+#map {
+  height: calc(100vh - 140px);
+  height: -webkit-calc(100vh - 140px); /* google, safari */
+  height: -o-calc(100vh - 140px); /* opera */
+  height: -moz-calc(100vh - 140px); /* firefox */
+}
+
+#add-me { height: 100%; }

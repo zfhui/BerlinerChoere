@@ -1,11 +1,17 @@
 <div id="map"></div>
 
-<% if user_signed_in? %>
-  <%= link_to "Neuer Chor hinzufügen", new_choir_path %>
-<% end %>
+<div id="add-me">
+  <a name="add-me">
+  <div class="container">
+    <% if user_signed_in? %>
+      <p class="text-center"><a href='#add-me'>Meinen Chor hinzufügen!</a></p>
+      <%= render partial: 'choirs/form', locals: {choir: @choir = Choir.new} %>
+    <% end %>
+  </div>
+</div>
 
 <script type="text/javascript">
-  var map = L.map('map').setView([52.520, 13.404], 10);
+  var map = L.map('map').setView([52.520, 13.404], 11);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',

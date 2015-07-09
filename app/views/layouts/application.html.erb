@@ -26,6 +26,15 @@
 				<p class="alert alert-danger"><%= alert %></p>
 			<% end %>
 
+      <!-- navbar -->
+      <nav class="navbar navbar-static">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <%= link_to 'Berliner Chöre', root_path, class: "navbar-brand" %>
+          </div>
+        </div>
+      </nav>
+
       <%= yield %>
       <%= yield :javascript%>
 

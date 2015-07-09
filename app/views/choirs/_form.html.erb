@@ -1,4 +1,4 @@
-<%= form_for(@choir) do |f| %>
+<%= simple_form_for(@choir, html: {class: 'form-horizontal'}) do |f| %>
   <% if @choir.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@choir.errors.count, "error") %> prohibited this choir from being saved:</h2>
@@ -11,43 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :name, label: false, placeholder: 'Name des Chores*', required: true, class: 'form-control' %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :street_name %><br>
-    <%= f.text_field :street_name %>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-10">
+        <%= f.input :street_name, label: false, placeholder: 'Straße*', required: true, class: 'form-control' %>
+      </div>
+      <div class="col-xs-2">
+        <%= f.input :house_no, label: false, placeholder: 'Hausnr.*', class: 'form-control' %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :house_no %><br>
-    <%= f.text_field :house_no %>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-4">
+        <%= f.input :zipcode, type: 'number', label: false, placeholder: 'PLZ*', required: true, class: 'form-control' %>
+      </div>
+      <div class="col-xs-4">
+        <%= f.input :city, label: false, placeholder: 'Stadt', class: 'form-control' %>
+      </div>
+      <div class="col-xs-4">
+        <%= f.input :country, label: false, placeholder: 'Land', class: 'form-control' %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :zipcode %><br>
-    <%= f.number_field :zipcode %>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :website, type: 'url', label: false, placeholder: 'Website*: http://...', required: true, class: 'form-control' %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :website %><br>
-    <%= f.text_field :website %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group text-center">
+    <%= f.submit 'Verschicken', class: 'btn btn-primary block' %>
   </div>
 <% end %>
