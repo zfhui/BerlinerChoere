@@ -1,0 +1,53 @@
+<%= form_for(@choir) do |f| %>
+  <% if @choir.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@choir.errors.count, "error") %> prohibited this choir from being saved:</h2>
+
+      <ul>
+      <% @choir.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :street_name %><br>
+    <%= f.text_field :street_name %>
+  </div>
+  <div class="field">
+    <%= f.label :house_no %><br>
+    <%= f.text_field :house_no %>
+  </div>
+  <div class="field">
+    <%= f.label :zipcode %><br>
+    <%= f.number_field :zipcode %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br>
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

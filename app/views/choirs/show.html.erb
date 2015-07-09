@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @choir.name %>
+</p>
+
+<p>
+  <strong>Street name:</strong>
+  <%= @choir.street_name %>
+</p>
+
+<p>
+  <strong>House no:</strong>
+  <%= @choir.house_no %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @choir.zipcode %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @choir.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @choir.country %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @choir.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @choir.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_choir_path(@choir) %> |
+<%= link_to 'Back', choirs_path %>
