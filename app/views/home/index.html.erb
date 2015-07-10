@@ -5,12 +5,34 @@
 
 <div id="map"></div>
 
-<div id="add-me">
-  <a href='#add-me'>Meinen Chor hinzufügen!</a>
+<div id="footer-controlls">
+  <% if !user_signed_in? %>
+    <%=link_to "Login", new_user_session_path%>
+  <% else %>
+    <div id="add-me">
+      <a href="#">Meinen Chor hinzufügen!</a>
+    </div>
+    </br>
+    <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+  <% end %>
 </div>
 
-<div id="add-me-form">
 
+
+<!-- Modal -->
+<div id="add-me-form" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Bitte füge meinen Chor zur Karte hinzu.</h4>
+      </div>
+      <div class="modal-body">
+        <%= render partial: 'choirs/form', locals: {choir: @choir = Choir.new} %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript">
@@ -27,9 +49,11 @@
     L.marker([<%= choir.latitude %>, <%= choir.longitude %>]).addTo(map);
   <% end %>
 
-  $(document).ready(function(){
-    $('#add-me').on('click', function(){
-      $('#add-me-form').html("<%= j render(partial: 'choirs/form', locals: {choir: @choir = Choir.new}) %>");
-    });
+  $('#add-me a').on('click', function(){
+    $('#add-me-form').modal();
+  });
+
+  $('#add-choir').on('click', function(){
+
   });
 </script>

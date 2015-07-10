@@ -28,7 +28,9 @@
   // height: -moz-calc(100vh - 70px); /* firefox */
 }
 
-#add-me {
+
+
+#footer-controlls {
   height: 50px;
   width: 100%;
   text-align: center;
@@ -39,10 +41,15 @@
 
 }
 
-#add-me a{
+#footer-controlls a{
   background-color: #FFF;
   text-transform: uppercase;
   font-size: large;
   font-weight: bold;
   padding: 5px;
+}
+
+.form-horizontal .form-group{
+  margin-left: 0px;
+  margin-right: 0px;
 }
