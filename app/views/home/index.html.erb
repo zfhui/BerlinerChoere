@@ -1,14 +1,16 @@
+<!-- logo -->
+<div id="logo">
+  <%= link_to 'Berliner Chöre', root_path%>
+</div>
+
 <div id="map"></div>
 
 <div id="add-me">
   <a href='#add-me'>Meinen Chor hinzufügen!</a>
 </div>
 
-<div class="container">
-  <a name="add-me">
-  <% if user_signed_in? %>
-    <%= render partial: 'choirs/form', locals: {choir: @choir = Choir.new} %>
-  <% end %>
+<div id="add-me-form">
+
 </div>
 
 <script type="text/javascript">
@@ -24,4 +26,10 @@
   <% @choirs.each do |choir| %>
     L.marker([<%= choir.latitude %>, <%= choir.longitude %>]).addTo(map);
   <% end %>
+
+  $(document).ready(function(){
+    $('#add-me').on('click', function(){
+      $('#add-me-form').html("<%= j render(partial: 'choirs/form', locals: {choir: @choir = Choir.new}) %>");
+    });
+  });
 </script>

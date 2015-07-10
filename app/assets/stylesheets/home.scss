@@ -1,6 +1,25 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#logo {
+  height: 50px;
+  width: 400px;
+  position: absolute;
+  left: 0px;
+  top: 40px;
+  z-index: 40;
+  text-align: center;
+  background: #FFF;
+}
+
+#logo a{
+  height: 100%;
+  width: 100%;
+  font-weight: bolder;
+  font-size: xx-large;
+  text-transform: uppercase;
+  padding: 5px;
+}
 
 #map {
   height: 100vh;

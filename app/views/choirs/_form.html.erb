@@ -1,56 +1,58 @@
-<%= simple_form_for(@choir, html: {class: 'form-horizontal'}) do |f| %>
-  <% if @choir.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@choir.errors.count, "error") %> prohibited this choir from being saved:</h2>
+<div class="container">
+  <%= simple_form_for(@choir, html: {class: 'form-horizontal'}) do |f| %>
+    <% if @choir.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@choir.errors.count, "error") %> prohibited this choir from being saved:</h2>
 
-      <ul>
-      <% @choir.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @choir.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.input :name, label: false, placeholder: 'Name des Chores*', required: true, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.input :website, type: 'url', label: false, placeholder: 'Website*: http://...', required: true, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.input :location_name, label: false, placeholder: 'Probenort', class: 'form-control' %>
+        </div>
+        <div class="col-xs-10">
+          <%= f.input :street_name, label: false, placeholder: 'Straße*', required: true, class: 'form-control' %>
+        </div>
+        <div class="col-xs-2">
+          <%= f.input :house_no, label: false, placeholder: 'Hausnr.*', class: 'form-control' %>
+        </div>
+        <div class="col-xs-4">
+          <%= f.input :zipcode, type: 'number', label: false, placeholder: 'PLZ*', required: true, class: 'form-control' %>
+        </div>
+        <div class="col-xs-4">
+          <%= f.input :city, label: false, disabled: true, placeholder: 'Stadt', class: 'form-control' %>
+        </div>
+        <div class="col-xs-4">
+          <%= f.input :country, label: false, disabled: true, placeholder: 'Land', class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group text-center">
+      <%= f.submit 'Verschicken', class: 'btn btn-primary block' %>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <div class="row">
-      <div class="col-xs-12">
-        <%= f.input :name, label: false, placeholder: 'Name des Chores*', required: true, class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="row">
-      <div class="col-xs-12">
-        <%= f.input :website, type: 'url', label: false, placeholder: 'Website*: http://...', required: true, class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="row">
-      <div class="col-xs-12">
-        <%= f.input :location_name, label: false, placeholder: 'Probenort', class: 'form-control' %>
-      </div>
-      <div class="col-xs-10">
-        <%= f.input :street_name, label: false, placeholder: 'Straße*', required: true, class: 'form-control' %>
-      </div>
-      <div class="col-xs-2">
-        <%= f.input :house_no, label: false, placeholder: 'Hausnr.*', class: 'form-control' %>
-      </div>
-      <div class="col-xs-4">
-        <%= f.input :zipcode, type: 'number', label: false, placeholder: 'PLZ*', required: true, class: 'form-control' %>
-      </div>
-      <div class="col-xs-4">
-        <%= f.input :city, label: false, disabled: true, placeholder: 'Stadt', class: 'form-control' %>
-      </div>
-      <div class="col-xs-4">
-        <%= f.input :country, label: false, disabled: true, placeholder: 'Land', class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group text-center">
-    <%= f.submit 'Verschicken', class: 'btn btn-primary block' %>
-  </div>
-<% end %>
+</div>
