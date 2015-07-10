@@ -3421,8 +3421,8 @@ L.icon = function (options) {
 L.Icon.Default = L.Icon.extend({
 
 	options: {
-		iconSize: [25, 41],
-		iconAnchor: [12, 41],
+		iconSize: [27, 41],
+		iconAnchor: [13, 41],
 		popupAnchor: [1, -34],
 
 		shadowSize: [41, 41]
