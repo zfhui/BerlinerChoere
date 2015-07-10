@@ -3,10 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #map {
-  height: calc(100vh - 140px);
-  height: -webkit-calc(100vh - 140px); /* google, safari */
-  height: -o-calc(100vh - 140px); /* opera */
-  height: -moz-calc(100vh - 140px); /* firefox */
+  height: 100vh;
+  // height: -webkit-calc(100vh - 70px); /* google, safari */
+  // height: -o-calc(100vh - 70px); /* opera */
+  // height: -moz-calc(100vh - 70px); /* firefox */
 }
 
-#add-me { height: 100%; }
+#add-me {
+  height: 50px;
+  width: 100%;
+  text-align: center;
+
+  position: absolute;
+  bottom: 25px;
+  z-index: 10px;
+
+}
+
+#add-me a{
+  background-color: #FFF;
+  text-transform: uppercase;
+  font-size: large;
+  font-weight: bold;
+  padding: 5px;
+}

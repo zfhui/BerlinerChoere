@@ -26,25 +26,23 @@
 				<p class="alert alert-danger"><%= alert %></p>
 			<% end %>
 
-      <!-- navbar -->
-      <nav class="navbar navbar-static">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <%= link_to 'Berliner Chöre', root_path, class: "navbar-brand" %>
-          </div>
-        </div>
-      </nav>
+      <!-- logo -->
+      <div id="logo">
+        <%= link_to 'Berliner Chöre', root_path%>
+      </div>
 
       <%= yield %>
       <%= yield :javascript%>
 
       <!-- footer -->
       <footer class="footer">
-        <% if !user_signed_in? %>
-          <%=link_to "Login", new_user_session_path%>
-        <% else %>
-          <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
-        <% end %>
+        <div class="container-fluid">
+          <% if !user_signed_in? %>
+            <%=link_to "Login", new_user_session_path%>
+          <% else %>
+            <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
+          <% end %>
+        </div>
       </footer>
     </div>
   </body>
