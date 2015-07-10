@@ -17,8 +17,6 @@
   <% end %>
 </div>
 
-
-
 <!-- Modal -->
 <div id="add-me-form" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -46,7 +44,7 @@
   }).addTo(map);
 
   <% @choirs.each do |choir| %>
-    L.marker([<%= choir.latitude %>, <%= choir.longitude %>]).addTo(map);
+    var marker = L.marker([<%= choir.latitude %>, <%= choir.longitude %>]).bindPopup('<%= j render( partial: 'marker_popup', locals: {choir: choir}) %>').addTo(map);
   <% end %>
 
   $('#add-me a').on('click', function(){
