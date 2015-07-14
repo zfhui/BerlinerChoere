@@ -1,4 +1,5 @@
 class Choir < ActiveRecord::Base
+  belongs_to :category
   geocoded_by :full_address
   after_validation :geocode          # auto-fetch coordinates
 
