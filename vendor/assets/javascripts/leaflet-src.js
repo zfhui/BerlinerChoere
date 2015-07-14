@@ -3421,11 +3421,11 @@ L.icon = function (options) {
 L.Icon.Default = L.Icon.extend({
 
 	options: {
-		iconSize: [27, 41],
-		iconAnchor: [13, 41],
+		iconSize: [30, 43],
+		iconAnchor: [15, 43],
 		popupAnchor: [1, -34],
 
-		shadowSize: [41, 41]
+		shadowSize: [43, 43]
 	},
 
 	_getIconUrl: function (name) {
