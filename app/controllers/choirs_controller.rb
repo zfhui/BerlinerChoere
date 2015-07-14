@@ -70,6 +70,6 @@ class ChoirsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def choir_params
-      params.require(:choir).permit(:name, :location_name, :street_name, :house_no, :zipcode, :city, :country, :website, :latitude, :longitude)
+      params.require(:choir).permit(:name, :location_name, :street_name, :category_id, :house_no, :zipcode, :city, :country, :website, :latitude, :longitude)
     end
 end

@@ -5,7 +5,8 @@
     <tr>
       <th>Name</th>
       <th>Website</th>
-      <th>Rehearsal Location Name</th>
+      <th>Kategorie</th>
+      <th>Rehearsal Location</th>
       <th>Street name</th>
       <th>House no</th>
       <th>Zipcode</th>
@@ -22,6 +23,7 @@
       <tr>
         <td><%= choir.name %></td>
         <td><%= choir.website %></td>
+        <td><%= choir.category.name unless !choir.category.present? %></td>
         <td><%= choir.location_name %></td>
         <td><%= choir.street_name %></td>
         <td><%= choir.house_no %></td>
