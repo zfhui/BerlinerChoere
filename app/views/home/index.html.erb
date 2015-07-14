@@ -1,6 +1,7 @@
 <!-- logo -->
 <div id="logo">
-  <%= link_to 'Berliner Chöre', root_path%>
+  <a href="<%= root_path %>">
+  </a>
 </div>
 
 <div id="map"></div>
@@ -34,6 +35,8 @@
 </div>
 
 <script type="text/javascript">
+  logoResize();
+
   var mapOptions = {
      maxZoom: 15,
      minZoom: 11,

@@ -2,23 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #logo {
-  height: 50px;
-  width: 400px;
+  height: 100px;
+  width: 100%;
   position: absolute;
-  left: 0px;
+  left: 20px;
   top: 40px;
   z-index: 40;
-  text-align: center;
-  background: #FFF;
+  text-align: left;
+  background: transparent;
+}
+
+#logo img {
+  height: 100%;
 }
 
 #logo a{
   height: 100%;
-  width: 100%;
   font-weight: bolder;
   font-size: xx-large;
-  text-transform: uppercase;
-  padding: 5px;
 }
 
 #map {
@@ -26,10 +27,8 @@
   // height: -webkit-calc(100vh - 70px); /* google, safari */
   // height: -o-calc(100vh - 70px); /* opera */
   // height: -moz-calc(100vh - 70px); /* firefox */
-  background-color: #FFF !important; 
+  background-color: #FFF !important;
 }
-
-
 
 #footer-controlls {
   height: 50px;
@@ -39,7 +38,6 @@
   position: absolute;
   bottom: 25px;
   z-index: 10px;
-
 }
 
 #footer-controlls a{

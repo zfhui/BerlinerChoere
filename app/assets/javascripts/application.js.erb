@@ -17,3 +17,22 @@
 //= require leaflet-src
 //= require_tree .
 //= require turbolinks
+
+// logo resize according to windows size
+function logoResize() {
+  var windos_size = $(window).width();
+  var img = document.createElement("img");
+  img.title = 'Berliner Chöre';
+
+  if (windos_size > '1000') {
+    img.style.height = "50%";
+    img.src='<%=image_url("icons/logo.png")%>';
+  } else {
+    img.style.height = "100%";
+    img.src='<%=image_url("icons/logo_small.png")%>';
+  }
+
+  $('#logo a').html(img);
+}
+
+$(window).resize(logoResize);
