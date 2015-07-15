@@ -27,8 +27,11 @@
 </div>
 
 <script type="text/javascript">
-  logoResize();
+$(window).load(function(){
+  showMap();
+});
 
+function showMap() {
   var mapOptions = {
      maxZoom: 15,
      minZoom: 11,
@@ -39,16 +42,63 @@
 
   var map = L.map('map', mapOptions).setView([52.520, 13.404], 11);
 
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+  var berlinMap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com"  target="_blank">Mapbox</a>',
       maxZoom: 15,
       id: "<%= ENV['mapbox_map_id'] %>",
       accessToken: "<%= ENV['mapbox_auth_token'] %>"
   }).addTo(map);
 
+  var mixedChoirMarkers = [];
+  var womenChoirMarkers = [];
+  var menChoirMarkers = [];
+  var childrenChoirMarkers = [];
+  var youthChoirMarkers = [];
+  var elderlyChoirMarkers = [];
+  var defaultChoirMarkers = [];
+
   <% @choirs.each do |choir| %>
-    L.marker([<%= choir.latitude %>, <%= choir.longitude %>]).bindPopup('<%= j render( partial: 'marker_popup', locals: {choir: choir}) %>').addTo(map);
+    var marker = L.marker([<%= choir.latitude %>, <%= choir.longitude %>]).bindPopup('<%= j render( partial: 'marker_popup', locals: {choir: choir}) %>').addTo(map);
+
+    var category = '<%= choir.category.name unless !choir.category.present? %>';
+    switch (category) {
+      case 'Gemischter Chor': mixedChoirMarkers.push(marker);
+        break;
+      case 'Frauenchor':      womenChoirMarkers.push(marker);
+        break;
+      case 'Männerchor':      menChoirMarkers.push(marker);
+        break;
+      case 'Kinderchor':      childrenChoirMarkers.push(marker);
+        break;
+      case 'Jugendchor':      youthChoirMarkers.push(marker);
+        break;
+      case 'Seniorenchor':    elderlyChoirMarkers.push(marker);
+        break;
+      default:                defaultChoirMarkers.push(marker);
+    }
   <% end %>
+
+  var mixedChoirs    = L.layerGroup(mixedChoirMarkers).addTo(map);
+  var womenChoirs    = L.layerGroup(womenChoirMarkers).addTo(map);
+  var menChoirs      = L.layerGroup(menChoirMarkers).addTo(map);
+  var childrenChoirs = L.layerGroup(childrenChoirMarkers).addTo(map);
+  var youthChoirs    = L.layerGroup(youthChoirMarkers).addTo(map);
+  var elderlyChoirs  = L.layerGroup(elderlyChoirMarkers).addTo(map);
+  var defaultChoirs  = L.layerGroup(defaultChoirMarkers).addTo(map);
+
+
+  var choirCategories = {
+    "Geschmicher Chor": mixedChoirs,
+    "Frauenchor":       womenChoirs,
+    "Männerchor":       menChoirs,
+    "Kinderchor":       childrenChoirs,
+    "Jugendchor":       youthChoirs,
+    "Seniorenchor":     elderlyChoirs,
+    "Sonstiger Chor":   defaultChoirs
+  };
+
+  L.control.layers({}, choirCategories).addTo(map);
+}
 
   $('#add-me a').on('click', function(){
     $('#add-me-form').modal();
