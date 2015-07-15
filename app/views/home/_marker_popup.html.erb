@@ -3,3 +3,7 @@
 <%= link_to choir.website, target: '_blank' do %>
   <span class="glyphicon glyphicon-globe"></span> Website
 <% end %>
+<% if user_signed_in? %>
+  </br>
+  <%= link_to "Bearbeiten", edit_choir_path(choir) %>
+<% end %>
