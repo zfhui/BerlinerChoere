@@ -1,31 +1,35 @@
-<!-- logo -->
-<div id="logo">
-  <a href="<%= root_path %>">
-  </a>
-</div>
+<section id="map-section">
+  <a name="map-section"></a>
 
-<div id="map"></div>
-
-<div id="footer-controlls">
-  <a href="mailto:zhfhui@gmail.com?subject=Bitte meinen Chor hinzufügen!">Dein Chor fehlt?</a>
-</div>
-
-<!-- Modal -->
-<div id="add-me-form" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Bitte füge meinen Chor zur Karte hinzu.</h4>
-      </div>
-      <div class="modal-body">
-        <%= render partial: 'choirs/form', locals: {choir: @choir = Choir.new} %>
-      </div>
-    </div>
+  <!-- logo -->
+  <div id="logo">
+    <a href="<%= root_path %>">
+    </a>
   </div>
-</div>
 
+  <!-- map -->
+  <div id='map'></div>
+
+  <!-- add choir button -->
+  <div id="add-me">
+    <h3><a href="#add-me" class="scroll"><span class="glyphicon glyphicon-chevron-down"></span> Dein Chor fehlt? <span class="glyphicon glyphicon-chevron-down"></span></a></h3>
+  </div>
+</section>
+
+
+<!-- add choir form -->
+<section id="add-me-form">
+  <a name="add-me-form"></a>
+  <div class="container">
+    <h4>Bitte füge meinen Chor zur Karte hinzu.</h4>
+    <%= render partial: 'choirs/form', locals: {choir: @choir = Choir.new} %>
+    <a href="#map-section"><span class="glyphicon glyphicon-chevron-up"></span> Nach Oben</a>
+  </div>
+</section>
+
+
+
+<!-- JS -->
 <script type="text/javascript">
 $(window).load(function(){
   showMap();
@@ -99,12 +103,4 @@ function showMap() {
 
   L.control.layers({}, choirCategories).addTo(map);
 }
-
-  $('#add-me a').on('click', function(){
-    $('#add-me-form').modal();
-  });
-
-  $('#add-choir').on('click', function(){
-
-  });
 </script>
