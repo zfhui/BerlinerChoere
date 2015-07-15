@@ -2,12 +2,12 @@ require 'uri'
 
 class Choir < ActiveRecord::Base
   belongs_to :category
-  geocoded_by :full_address
-  after_validation :geocode          # auto-fetch coordinates
+
+  default_scope { order('name ASC') }
 
   validates :name,
             presence: true,
-            uniqueness: true, 
+            uniqueness: true,
             length: { minimum: 3 }
   validates :zipcode,
             presence: true,
@@ -17,6 +17,9 @@ class Choir < ActiveRecord::Base
             format: {with: /\A#{URI::regexp}\z/}
   validates :category, presence: true
   validates :street_name, presence: true
+
+  geocoded_by :full_address
+  after_validation :geocode          # auto-fetch coordinates
 
   def full_address
     [street_name, house_no, zipcode, city, country].compact.join(', ')
