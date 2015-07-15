@@ -7,15 +7,7 @@
 <div id="map"></div>
 
 <div id="footer-controlls">
-  <% if !user_signed_in? %>
-    <%=link_to "Login", new_user_session_path%>
-  <% else %>
-    <div id="add-me">
-      <a href="#">Meinen Chor hinzufügen!</a>
-    </div>
-    </br>
-    <%=link_to "Logout", destroy_user_session_path, :method => :delete %>
-  <% end %>
+  <a href="mailto:zhfhui@gmail.com?subject=Bitte meinen Chor hinzufügen!">Dein Chor fehlt?</a>
 </div>
 
 <!-- Modal -->
