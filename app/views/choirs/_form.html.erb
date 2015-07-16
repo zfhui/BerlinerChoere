@@ -11,51 +11,61 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-        <%= f.input :name, label: false, placeholder: 'Name des Chores*', required: true, class: 'form-control' %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+      LOAD PICTURE!
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.input :name, label: false, placeholder: 'Name des Chores*', required: true, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.input :website, type: 'url', label: false, placeholder: 'Website: http://...', required: true, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.association :category, label: false, placeholder: 'Kategorie', required: true, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.input :location_name, label: false, placeholder: 'Probenort', class: 'form-control' %>
+          </div>
+          <div class="col-xs-9">
+            <%= f.input :street_name, label: false, placeholder: 'Straße*', required: true, class: 'form-control' %>
+          </div>
+          <div class="col-xs-3">
+            <%= f.input :house_no, label: false, placeholder: 'Nr.', class: 'form-control' %>
+          </div>
+          <div class="col-xs-6">
+            <%= f.input :zipcode, type: 'number', label: false, placeholder: 'PLZ*', required: true, class: 'form-control' %>
+          </div>
+          <div class="col-xs-6">
+            <%= f.input :city, label: false, disabled: true, placeholder: 'Stadt', class: 'form-control' %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="form-group">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-        <%= f.input :website, type: 'url', label: false, placeholder: 'Website: http://...', required: true, class: 'form-control' %>
-      </div>
+  <div class="row">
+    <div class="form-group text-center">
+      <%= f.submit 'Verschicken', class: 'btn btn-default outline', id: 'add-choir' %>
     </div>
-  </div>
-
-  <div class="form-group">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-        <%= f.association :category, label: false, placeholder: 'Kategorie', required: true, class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-        <%= f.input :location_name, label: false, placeholder: 'Probenort', class: 'form-control' %>
-      </div>
-      <div class="col-xs-10 col-sm-3 col-sm-offset-4">
-        <%= f.input :street_name, label: false, placeholder: 'Straße*', required: true, class: 'form-control' %>
-      </div>
-      <div class="col-xs-2 col-sm-1">
-        <%= f.input :house_no, label: false, placeholder: 'Nr.', class: 'form-control' %>
-      </div>
-      <div class="col-xs-4 col-sm-2 col-sm-offset-4">
-        <%= f.input :zipcode, type: 'number', label: false, placeholder: 'PLZ*', required: true, class: 'form-control' %>
-      </div>
-      <div class="col-xs-4 col-sm-2">
-        <%= f.input :city, label: false, disabled: true, placeholder: 'Stadt', class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group text-center">
-    <%= f.submit 'Verschicken', class: 'btn btn-default outline', id: 'add-choir' %>
   </div>
 <% end %>
