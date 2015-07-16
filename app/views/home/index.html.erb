@@ -22,7 +22,9 @@
   <div class="container">
     <h2>Bitte füge deinen Chor zur Karte hinzu.</h2>
     <%= render partial: 'choirs/form', locals: {choir: @choir = Choir.new} %>
-    <a href="#map-section" class="page-scroll"><span class="glyphicon glyphicon-chevron-up"></span> Zur Karte</a>
+    <div class="text-right" style="padding-top: 1.5em; padding-bottom: 1.5em;">
+      <a href="#map-section" class="page-scroll"><span class="glyphicon glyphicon-chevron-up"></span> Zur Karte</a>
+    </div>
   </div>
   <a name="add-me-form"></a>
 </section>
@@ -31,20 +33,25 @@
 <section id="about">
   <div class="container">
     <%= render partial: 'about' %>
-    <a href="#map-section" class="page-scroll"><span class="glyphicon glyphicon-chevron-up"></span> Zur Karte</a>
+    <div class="text-right" style="padding-top: 1.5em; padding-bottom: 1.5em;">
+      <a href="#map-section" class="page-scroll"><span class="glyphicon glyphicon-chevron-up"></span> Zur Karte</a>
+    </div>
   </div>
-  <a name="about">
+  <a name="about"></a>
 </section>
 
 <footer class="footer">
   <div class="container">
-    <% if user_signed_in? %>
-      <%= link_to 'Logout ', destroy_user_session_path, :method => :delete %> |
-      <%= link_to "Chöre", choirs_path %>
-    <% else %>
-      <%= link_to 'Login ', new_user_session_path %>
-    <% end %>
+    <ul>
+      <% if user_signed_in? %>
+        <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li> |
+        <li><%= link_to "Chöre", choirs_path %></li>
+      <% else %>
+        <li><%= link_to 'Login ', new_user_session_path %></li>
+      <% end %>
+    </ul>
   </div>
+  <a name="footer"></a>
 </footer>
 
 <!-- JS -->
