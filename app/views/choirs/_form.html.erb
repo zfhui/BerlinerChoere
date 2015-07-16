@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
         <%= f.input :name, label: false, placeholder: 'Name des Chores*', required: true, class: 'form-control' %>
       </div>
     </div>
@@ -21,7 +21,7 @@
 
   <div class="form-group">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
         <%= f.input :website, type: 'url', label: false, placeholder: 'Website: http://...', required: true, class: 'form-control' %>
       </div>
     </div>
@@ -29,7 +29,7 @@
 
   <div class="form-group">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
         <%= f.association :category, label: false, placeholder: 'Kategorie', required: true, class: 'form-control' %>
       </div>
     </div>
@@ -37,23 +37,20 @@
 
   <div class="form-group">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
         <%= f.input :location_name, label: false, placeholder: 'Probenort', class: 'form-control' %>
       </div>
-      <div class="col-xs-10">
+      <div class="col-xs-10 col-sm-3 col-sm-offset-4">
         <%= f.input :street_name, label: false, placeholder: 'Straße*', required: true, class: 'form-control' %>
       </div>
-      <div class="col-xs-2">
-        <%= f.input :house_no, label: false, placeholder: 'Hausnr.*', class: 'form-control' %>
+      <div class="col-xs-2 col-sm-1">
+        <%= f.input :house_no, label: false, placeholder: 'Nr.', class: 'form-control' %>
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-4 col-sm-2 col-sm-offset-4">
         <%= f.input :zipcode, type: 'number', label: false, placeholder: 'PLZ*', required: true, class: 'form-control' %>
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-4 col-sm-2">
         <%= f.input :city, label: false, disabled: true, placeholder: 'Stadt', class: 'form-control' %>
-      </div>
-      <div class="col-xs-4">
-        <%= f.input :country, label: false, disabled: true, placeholder: 'Land', class: 'form-control' %>
       </div>
     </div>
   </div>

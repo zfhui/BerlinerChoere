@@ -60,7 +60,10 @@ a:focus {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  margin: 1.5em auto 0.5em auto;
 }
+
+
 
 #logo {
   height: 100px;
@@ -110,15 +113,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #add-me-form {
-  background-color: #9B9B9B;
+  color: #E52165;
+  background-color: #EEE;
 }
 
 // ---- forms ----
+.form-horizontal {
+  margin: 1.5em auto 1.5em auto;
+}
 .form-horizontal .form-group{
   margin-left: 0px;
   margin-right: 0px;
 }
-
 
 //---- marker popup ----
 .marker-popup {
