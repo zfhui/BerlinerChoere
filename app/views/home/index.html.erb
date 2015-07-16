@@ -1,19 +1,20 @@
 <section id="map-section">
-  <a name="map-section"></a>
+    <a name="map-section"></a>
 
-  <!-- logo -->
-  <div id="logo">
-    <a href="<%= root_path %>">
-    </a>
-  </div>
+    <!-- logo -->
+    <div id="logo">
+      <a href="<%= root_path %>">
+      </a>
+    </div>
 
-  <!-- map -->
-  <div id='map'></div>
+    <!-- map -->
+    <div id='map'></div>
 
-  <!-- add choir button -->
-  <div id="add-me">
-    <h3><a href="#add-me" class="scroll"><span class="glyphicon glyphicon-chevron-down"></span> Dein Chor fehlt? <span class="glyphicon glyphicon-chevron-down"></span></a></h3>
-  </div>
+    <!-- add choir button -->
+    <div id="add-me">
+      <button type="button" class="btn btn-default outline"><a href="#add-me" class="scroll">Dein Chor fehlt?</a></button></br>
+      <span class="glyphicon glyphicon-chevron-down"></span>
+    </div>
 </section>
 
 
@@ -21,7 +22,7 @@
 <section id="add-me-form">
   <a name="add-me-form"></a>
   <div class="container">
-    <h4>Bitte füge meinen Chor zur Karte hinzu.</h4>
+    <h3>Bitte füge meinen Chor zur Karte hinzu.</h3>
     <%= render partial: 'choirs/form', locals: {choir: @choir = Choir.new} %>
     <a href="#map-section"><span class="glyphicon glyphicon-chevron-up"></span> Nach Oben</a>
   </div>
@@ -31,7 +32,7 @@
 
 <!-- JS -->
 <script type="text/javascript">
-$(window).load(function(){
+$(document).ready(function(){
   showMap();
 });
 
