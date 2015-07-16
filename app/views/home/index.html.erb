@@ -60,7 +60,7 @@ function showMap() {
   <% @choirs.each do |choir| %>
     var marker = L.marker([<%= choir.latitude %>, <%= choir.longitude %>]).bindPopup('<%= j render( partial: 'marker_popup', locals: {choir: choir}) %>').addTo(map);
 
-    var category = '<%= choir.category.name unless !choir.category.present? %>';
+    var category = '<%= choir.category.name if choir.category.present? %>';
     switch (category) {
       case 'Gemischter Chor': mixedChoirMarkers.push(marker);
         break;
