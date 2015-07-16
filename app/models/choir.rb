@@ -21,6 +21,9 @@ class Choir < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode, if: :full_address_changed?
 
+  attr_accessor :image
+  mount_uploader :image, ImageUploader
+
   def full_address
     [street_name, house_no, zipcode, city, country].compact.join(', ')
   end

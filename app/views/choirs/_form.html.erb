@@ -1,4 +1,4 @@
-<%= simple_form_for(@choir, html: {class: 'form-horizontal'}) do |f| %>
+<%= simple_form_for(@choir, html: {multipart: true, class: 'form-horizontal'}) do |f| %>
   <% if @choir.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@choir.errors.count, "error") %> prohibited this choir from being saved:</h2>
@@ -13,7 +13,9 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-1">
-      LOAD PICTURE!
+      <div class="form-group">
+        <%= f.input :image, type: 'file', label: "Lade dein Logo hoch." %>
+      </div>
     </div>
 
     <div class="col-xs-12 col-sm-6">

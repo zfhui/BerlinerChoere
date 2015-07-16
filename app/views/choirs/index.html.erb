@@ -3,6 +3,7 @@
 <table class="table table-condensed">
   <thead>
     <tr>
+      <th>Logo</th>
       <th>Name</th>
       <th>Website</th>
       <th>Kategorie</th>
@@ -20,6 +21,9 @@
   <tbody>
     <% @choirs.each do |choir| %>
       <tr>
+        <td>
+          <img src="<%= choir.image_url(:thumb).to_s %>">
+        </td>
         <td>
           <%= choir.name %>
           <p>

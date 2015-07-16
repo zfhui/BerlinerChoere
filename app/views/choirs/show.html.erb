@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<p class="text-center">
+  <strong>Logo: </strong>
+  <img src="<%= @choir.image_url(:thumb).to_s%>">
+</p>
 
 <p>
   <strong>Name:</strong>
@@ -12,7 +15,7 @@
 
 <p>
   <strong>Kategorie:</strong>
-  <%= @choir.category.name %>
+  <%= @choir.category.name if @choir.category.present?%>
 </p>
 
 <p>
