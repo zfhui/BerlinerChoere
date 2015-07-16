@@ -44,8 +44,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1.5em auto 0.5em auto;
 }
 
-
-
 #logo {
   height: 100px;
   position: absolute;
@@ -107,6 +105,15 @@ h1, h2, h3, h4, h5, h6 {
   height: 100px;
   color: #E52165;
   background-color: #CCC;
+}
+
+ul {
+  margin: 1.5em auto;
+  list-style-type: none;
+}
+
+li {
+  display: inline;
 }
 
 // ---- forms ----
