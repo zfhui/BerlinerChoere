@@ -1,11 +1,27 @@
-<div class="marker-popup">
-  <%= choir.name %>
-  </br>
-  <%= link_to choir.website, target: '_blank' do %>
-    <span class="glyphicon glyphicon-globe"></span> Website
-  <% end %>
-  <% if user_signed_in? %>
-    </br>
+<% if user_signed_in? %>
+  <div class="text-center">
     <%= link_to "Bearbeiten", edit_choir_path(choir) %>
+  </div>
+  </br>
+<% end %>
+
+<div class="marker-popup">
+  <% if choir.image? %>
+    <div class="text-center">
+      <img src="<%= choir.image_url(:marker).to_s %>"/>
+    </div>
+  </br>
+  <% end %>
+  <strong><%= choir.name %></strong>
+  <address>
+    <%= "#{choir.street_name} #{choir.house_no}"%></br>
+    <%= "#{choir.zipcode} #{choir.city}"%>
+  </address>
+  <% if choir.website.present? %>
+    <div class="text-right">
+      <%= link_to choir.website, target: '_blank' do %>
+        <span class="glyphicon glyphicon-globe"></span> Webseite
+      <% end %>
+    </div>
   <% end %>
 </div>
