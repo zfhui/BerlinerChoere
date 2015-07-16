@@ -1,5 +1,5 @@
 class ChoirsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_choir, only: [:show, :edit, :update, :destroy]
 
   # GET /choirs
@@ -29,7 +29,7 @@ class ChoirsController < ApplicationController
 
     respond_to do |format|
       if @choir.save
-        format.html { redirect_to @choir, notice: 'Choir was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Vielen Dank! Dein Chor wird nach der Überprüfung hinzugefügt.' }
         format.json { render :show, status: :created, location: @choir }
       else
         format.html { render :new }
@@ -70,6 +70,6 @@ class ChoirsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def choir_params
-      params.require(:choir).permit(:name, :location_name, :street_name, :category_id, :house_no, :zipcode, :city, :country, :website, :latitude, :longitude, :image)
+      params.require(:choir).permit(:name, :location_name, :street_name, :category_id, :house_no, :zipcode, :city, :country, :website, :latitude, :longitude, :image, :approved)
     end
 end

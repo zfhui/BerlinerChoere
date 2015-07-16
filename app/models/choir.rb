@@ -14,7 +14,7 @@ class Choir < ActiveRecord::Base
             numericality: { only_integer: true },
             inclusion: { in: 10115..14199, message: "nur Berliner PLZ" }
   validates :website,
-            format: {with: /\A#{URI::regexp}\z/}
+            format: {with: /\A#{URI::regexp}\z/}, if: :website_changed?
   validates :category, presence: true
   validates :street_name, presence: true
 
@@ -32,5 +32,9 @@ class Choir < ActiveRecord::Base
 
   def full_address_changed?
     :street_name_changed? || :house_no_changed? || :zipcode_changed?
+  end
+
+  def website_changed?
+    :website_changed? if self.website.present?
   end
 end

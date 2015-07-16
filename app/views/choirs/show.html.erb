@@ -1,11 +1,16 @@
-<p class="text-center">
-  <strong>Logo: </strong>
-  <img src="<%= @choir.image_url(:thumb).to_s%>">
-</p>
-
 <p>
   <strong>Name:</strong>
   <%= @choir.name %>
+</p>
+
+<p class="text-center">
+  <strong>Überprüft? </strong>
+  <%= @choir.approved.to_s %>
+</p>
+
+<p class="text-center">
+  <strong>Logo: </strong>
+  <img src="<%= @choir.image_url(:thumb).to_s%>">
 </p>
 
 <p>
@@ -58,5 +63,6 @@
   <%= @choir.longitude %>
 </p>
 
-<%= link_to 'Edit', edit_choir_path(@choir) %> |
-<%= link_to 'Back', choirs_path %>
+<%= link_to 'Bearbeiten', edit_choir_path(@choir) %> |
+<%= link_to 'Zurück', choirs_path %> | 
+<%= link_to 'Start', root_path %>

@@ -25,6 +25,11 @@
           <img src="<%= choir.image_url(:thumb).to_s %>">
         </td>
         <td>
+          <% if choir.approved %>
+            <span class="glyphicon glyphicon-ok"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
           <%= choir.name %>
           <p>
             <%= link_to 'Show', choir %> |
