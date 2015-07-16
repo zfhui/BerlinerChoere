@@ -64,7 +64,7 @@ function showMap() {
   <% @choirs.each do |choir| %>
     var marker = L.marker([<%= choir.latitude %>, <%= choir.longitude %>]).bindPopup('<%= j render( partial: 'marker_popup', locals: {choir: choir}) %>').addTo(map);
 
-    var category = '<%= choir.category.name unless !choir.category.present? %>';
+    var category = '<%= choir.category.name if choir.category.present? %>';
     switch (category) {
       case 'Gemischter Chor': mixedChoirMarkers.push(marker);
         break;
@@ -84,10 +84,10 @@ function showMap() {
 
   var mixedChoirs    = L.layerGroup(mixedChoirMarkers).addTo(map);
   var womenChoirs    = L.layerGroup(womenChoirMarkers).addTo(map);
-  var menChoirs      = L.layerGroup(womenChoirMarkers).addTo(map);
-  var childrenChoirs = L.layerGroup(womenChoirMarkers).addTo(map);
-  var youthChoirs    = L.layerGroup(womenChoirMarkers).addTo(map);
-  var elderlyChoirs  = L.layerGroup(womenChoirMarkers).addTo(map);
+  var menChoirs      = L.layerGroup(menChoirMarkers).addTo(map);
+  var childrenChoirs = L.layerGroup(childrenChoirMarkers).addTo(map);
+  var youthChoirs    = L.layerGroup(youthChoirMarkers).addTo(map);
+  var elderlyChoirs  = L.layerGroup(elderlyChoirMarkers).addTo(map);
   var defaultChoirs  = L.layerGroup(defaultChoirMarkers).addTo(map);
 
 

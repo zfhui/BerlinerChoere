@@ -1,6 +1,6 @@
 <h1><%= @choirs.count %> Chöre</h1>
 
-<table>
+<table class="table table-condensed">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,16 +14,22 @@
       <th>Country</th>
       <th>Latitude</th>
       <th>Longitude</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @choirs.each do |choir| %>
       <tr>
-        <td><%= choir.name %></td>
+        <td>
+          <%= choir.name %>
+          <p>
+            <%= link_to 'Show', choir %> |
+            <%= link_to 'Edit', edit_choir_path(choir) %> |
+            <%= link_to 'Destroy', choir, method: :delete, data: { confirm: 'Bist du dir sicher?' } %>
+          </p>
+        </td>
         <td><%= choir.website %></td>
-        <td><%= choir.category.name unless !choir.category.present? %></td>
+        <td><%= choir.category.name if choir.category.present? %></td>
         <td><%= choir.location_name %></td>
         <td><%= choir.street_name %></td>
         <td><%= choir.house_no %></td>
@@ -32,9 +38,6 @@
         <td><%= choir.country %></td>
         <td><%= choir.latitude %></td>
         <td><%= choir.longitude %></td>
-        <td><%= link_to 'Show', choir %></td>
-        <td><%= link_to 'Edit', edit_choir_path(choir) %></td>
-        <td><%= link_to 'Destroy', choir, method: :delete, data: { confirm: 'Bist du dir sicher?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +45,7 @@
 
 <br>
 
-<%= link_to 'New Choir', new_choir_path %>
+<p>
+  <%= link_to 'Neuer Chor', new_choir_path %> |
+  <%= link_to 'Karte', root_path %>
+</p>

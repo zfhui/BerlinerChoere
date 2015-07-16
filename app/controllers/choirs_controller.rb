@@ -5,7 +5,7 @@ class ChoirsController < ApplicationController
   # GET /choirs
   # GET /choirs.json
   def index
-    @choirs = Choir.all.order(:name)
+    @choirs = Choir.all
   end
 
   # GET /choirs/1
