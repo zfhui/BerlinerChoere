@@ -23,11 +23,29 @@
   <div class="container">
     <h2>Bitte füge meinen Chor zur Karte hinzu.</h2>
     <%= render partial: 'choirs/form', locals: {choir: @choir = Choir.new} %>
-    <a href="#map-section" class="page-scroll"><span class="glyphicon glyphicon-chevron-up"></span> Nach Oben</a>
+    <a href="#map-section" class="page-scroll"><span class="glyphicon glyphicon-chevron-up"></span> Zur Karte</a>
   </div>
   <a name="add-me-form"></a>
 </section>
 
+<section id="about">
+  <div class="container">
+    <h2>Über diese Seite</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <a href="#map-section" class="page-scroll"><span class="glyphicon glyphicon-chevron-up"></span> Zur Karte</a>
+  </div>
+  <a name="about">
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path %>
+    <% end %>
+  </div>
+</footer>
 
 <!-- JS -->
 <script type="text/javascript">
