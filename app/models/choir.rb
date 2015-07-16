@@ -19,9 +19,15 @@ class Choir < ActiveRecord::Base
   validates :street_name, presence: true
 
   geocoded_by :full_address
-  after_validation :geocode          # auto-fetch coordinates
+  after_validation :geocode, if: :full_address_changed?
 
   def full_address
     [street_name, house_no, zipcode, city, country].compact.join(', ')
+  end
+
+  private
+
+  def full_address_changed?
+    :street_name_changed? || :house_no_changed? || :zipcode_changed?
   end
 end
