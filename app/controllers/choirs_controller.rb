@@ -29,7 +29,7 @@ class ChoirsController < ApplicationController
 
     respond_to do |format|
       if @choir.save
-        format.html { redirect_to root_path, notice: 'Vielen Dank! Dein Chor wird nach der Überprüfung hinzugefügt.' }
+        format.html { redirect_to root_path, notice: 'Vielen Dank! Dein Chor wird nach einer Überprüfung zur Karte hinzugefügt.' }
         format.json { render :show, status: :created, location: @choir }
       else
         format.html { render :new }
