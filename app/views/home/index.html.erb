@@ -12,7 +12,7 @@
 
     <!-- add choir button -->
     <div id="add-me">
-      <button type="button" class="btn btn-default outline"><a href="#add-me" class="scroll">Dein Chor fehlt?</a></button></br>
+      <button type="button" class="btn btn-default outline"><a href="#add-me-form" class="page-scroll">Dein Chor fehlt?</a></button></br>
       <span class="glyphicon glyphicon-chevron-down"></span>
     </div>
 </section>
@@ -20,12 +20,12 @@
 
 <!-- add choir form -->
 <section id="add-me-form">
-  <a name="add-me-form"></a>
   <div class="container">
     <h3>Bitte füge meinen Chor zur Karte hinzu.</h3>
     <%= render partial: 'choirs/form', locals: {choir: @choir = Choir.new} %>
-    <a href="#map-section"><span class="glyphicon glyphicon-chevron-up"></span> Nach Oben</a>
+    <a href="#map-section" class="page-scroll"><span class="glyphicon glyphicon-chevron-up"></span> Nach Oben</a>
   </div>
+  <a name="add-me-form"></a>
 </section>
 
 
