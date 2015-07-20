@@ -12,7 +12,7 @@
 
     <!-- add choir button -->
     <div id="add-me">
-      <a href="#add-me-section" class="btn btn-default outline page-scroll">Dein Chor fehlt?</a></br>
+      <a id='add-me-button' href="#add-me-section" class="btn btn-default outline page-scroll">Dein Chor fehlt?</a></br>
       <span class="glyphicon glyphicon-chevron-down"></span>
     </div>
 </section>
@@ -57,11 +57,15 @@
 
 <!-- JS -->
 <script type="text/javascript">
-
-$('#add-me-form').html("<%= j render 'choirs/form', locals: {choir: @choir = Choir.new} %>");
+$('#add-me-button').on('click', function(){
+  $('#add-me-title').html("Deinen Chor zur Karte hinzufügen:");
+  $('#add-me-form').html("<%= j render 'choirs/form', locals: {choir: @choir = Choir.new} %>");
+});
 
 $(document).ready(function(){
   showMap();
+  $('#add-me-title').html("Deinen Chor zur Karte hinzufügen:");
+  $('#add-me-form').html("<%= j render 'choirs/form', locals: {choir: @choir = Choir.new} %>");
 });
 
 function showMap(json) {
