@@ -1,13 +1,7 @@
-<%= simple_form_for(@choir, html: {multipart: true, class: 'form-horizontal'}) do |f| %>
+<%= simple_form_for @choir, remote: true, html: {multipart: true, class: 'form-horizontal'} do |f| %>
   <% if @choir.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@choir.errors.count, "error") %> prohibited this choir from being saved:</h2>
-
-      <ul>
-      <% @choir.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <h3><%= t 'simple_form.error_notification.default_message', errors: @choir.errors.count %></h3>
     </div>
   <% end %>
 
@@ -22,7 +16,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-1">
       <div class="form-group">
-        <%= f.input :image, type: 'file', label: "Lade dein Logo hoch." %>
+        <%= f.input :image, type: 'file', label: "Lade dein Logo hoch.", class: "btn btn-default btn-file"%>
       </div>
     </div>
 
@@ -30,7 +24,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-xs-12">
-            <%= f.input :name, label: false, placeholder: 'Name des Chores*', required: true, class: 'form-control' %>
+            <%= f.input :name, label: false, placeholder: '* Name des Chores', required: true, class: 'form-control' %>
           </div>
         </div>
       </div>
@@ -46,7 +40,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-xs-12">
-            <%= f.association :category, label: false, placeholder: 'Kategorie', required: true, class: 'form-control' %>
+            <%= f.association :category, label: false, :include_blank => false, required: true, class: 'form-control' %>
           </div>
         </div>
       </div>
@@ -57,13 +51,13 @@
             <%= f.input :location_name, label: false, placeholder: 'Probenort', class: 'form-control' %>
           </div>
           <div class="col-xs-9">
-            <%= f.input :street_name, label: false, placeholder: 'Straße*', required: true, class: 'form-control' %>
+            <%= f.input :street_name, label: false, placeholder: '* Straße', required: true, class: 'form-control' %>
           </div>
           <div class="col-xs-3">
             <%= f.input :house_no, label: false, placeholder: 'Nr.', class: 'form-control' %>
           </div>
           <div class="col-xs-6">
-            <%= f.input :zipcode, type: 'number', label: false, placeholder: 'PLZ*', required: true, class: 'form-control' %>
+            <%= f.input :zipcode, type: 'number', label: false, placeholder: '* PLZ', required: true, class: 'form-control' %>
           </div>
           <div class="col-xs-6">
             <%= f.input :city, label: false, disabled: true, placeholder: 'Stadt', class: 'form-control' %>

@@ -12,21 +12,21 @@
 
     <!-- add choir button -->
     <div id="add-me">
-      <button type="button" class="btn btn-default outline"><a href="#add-me-form" class="page-scroll">Dein Chor fehlt?</a></button></br>
+      <a id='add-me-button' href="#add-me-section" class="btn btn-default outline page-scroll">Dein Chor fehlt?</a></br>
       <span class="glyphicon glyphicon-chevron-down"></span>
     </div>
 </section>
 
 <!-- add choir form -->
-<section id="add-me-form">
+<section id="add-me-section">
+  <a name="add-me-section"></a>
   <div class="container">
-    <h2>Bitte füge deinen Chor zur Karte hinzu.</h2>
-    <%= render partial: 'choirs/form', locals: {choir: @choir = Choir.new} %>
+    <h2 id="add-me-title">Deinen Chor zur Karte hinzufügen:</h2>
+    <div id="add-me-form"></div>
     <div class="text-right" style="padding-top: 1.5em; padding-bottom: 1.5em;">
       <a href="#map-section" class="page-scroll"><span class="glyphicon glyphicon-chevron-up"></span> Zur Karte</a>
     </div>
   </div>
-  <a name="add-me-form"></a>
 </section>
 
 <!-- about this page -->
@@ -40,11 +40,12 @@
   <a name="about"></a>
 </section>
 
+<!-- footer -->
 <footer class="footer">
   <div class="container">
     <ul>
       <% if user_signed_in? %>
-        <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li> | 
+        <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li> |
         <li><%= link_to "Chöre", choirs_path %></li>
       <% else %>
         <li><%= link_to 'Login ', new_user_session_path %></li>
@@ -56,8 +57,15 @@
 
 <!-- JS -->
 <script type="text/javascript">
+$('#add-me-button').on('click', function(){
+  $('#add-me-title').html("Deinen Chor zur Karte hinzufügen:");
+  $('#add-me-form').html("<%= j render 'choirs/form', locals: {choir: @choir = Choir.new} %>");
+});
+
 $(document).ready(function(){
   showMap();
+  $('#add-me-title').html("Deinen Chor zur Karte hinzufügen:");
+  $('#add-me-form').html("<%= j render 'choirs/form', locals: {choir: @choir = Choir.new} %>");
 });
 
 function showMap(json) {
