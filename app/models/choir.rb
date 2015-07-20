@@ -1,8 +1,6 @@
 require 'uri'
 
 class Choir < ActiveRecord::Base
-  attr_accessor :name
-
   belongs_to :category
 
   default_scope { order('name ASC') }

@@ -1,6 +1,7 @@
 class ChoirsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_choir, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
 
   # GET /choirs
   # GET /choirs.json
@@ -31,9 +32,11 @@ class ChoirsController < ApplicationController
       if @choir.save
         format.html { redirect_to root_path, notice: 'Vielen Dank! Dein Chor wird nach einer Überprüfung zur Karte hinzugefügt.' }
         format.json { render :show, status: :created, location: @choir }
+        format.js { render action: 'create_suc'}
       else
-        format.html { render :new }
+        format.html { render action: :new }
         format.json { render json: @choir.errors, status: :unprocessable_entity }
+        format.js { render action: 'create_fail' }
       end
     end
   end

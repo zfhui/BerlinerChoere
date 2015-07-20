@@ -1,4 +1,4 @@
-<%= simple_form_for(@choir, html: {multipart: true, class: 'form-horizontal'}) do |f| %>
+<%= simple_form_for @choir, remote: true, html: {multipart: true, class: 'form-horizontal'} do |f| %>
   <% if @choir.errors.any? %>
     <div id="error_explanation">
       <h2><%= t 'simple_form.error_notification.default_message', errors: @choir.errors.count %></h2>

@@ -18,10 +18,10 @@
 </section>
 
 <!-- add choir form -->
-<section id="add-me-form">
+<section id="add-me-section">
   <div class="container">
     <h2>Deinen Chor zur Karte hinzufügen:</h2>
-    <%= render partial: 'choirs/form', locals: {choir: @choir = Choir.new} %>
+    <div id="add-me-form"></div>
     <div class="text-right" style="padding-top: 1.5em; padding-bottom: 1.5em;">
       <a href="#map-section" class="page-scroll"><span class="glyphicon glyphicon-chevron-up"></span> Zur Karte</a>
     </div>
@@ -40,6 +40,7 @@
   <a name="about"></a>
 </section>
 
+<!-- footer -->
 <footer class="footer">
   <div class="container">
     <ul>
@@ -56,6 +57,9 @@
 
 <!-- JS -->
 <script type="text/javascript">
+
+$('#add-me-form').html("<%= j render 'choirs/form', locals: {choir: @choir = Choir.new} %>");
+
 $(document).ready(function(){
   showMap();
 });
