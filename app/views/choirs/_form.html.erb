@@ -1,25 +1,45 @@
-<%= simple_form_for @choir, remote: true, html: {multipart: true, class: 'form-horizontal'} do |f| %>
+<%= simple_form_for @choir, remote: true, authenticity_token: true, html: {multipart: true, class: 'form-horizontal'} do |f| %>
   <% if @choir.errors.any? %>
     <div id="error_explanation">
       <h3><%= t 'simple_form.error_notification.default_message', errors: @choir.errors.count %></h3>
     </div>
   <% end %>
 
+  <!-- überprüft checkbox -->
   <% if user_signed_in? %>
     <div class="row">
       <div class="col-xs-12">
-        <%= f.input :approved, label: "Überprüft" %>
+        <%= f.input :approved, label: "Überprüft", class: "form-control" %>
       </div>
     </div>
   <% end %>
 
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+      <!-- choir icon -->
       <div class="form-group">
-        <%= f.input :image, type: 'file', label: "Lade dein Logo hoch.", class: "btn btn-default btn-file"%>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="fileinput fileinput-new" data-provides="fileinput">
+              <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                <img src="<%= image_url('logo_gray_100.png')%>" style="padding-top: 25px; padding-bottom: 25px;" alt="...">
+              </div>
+              <div class="fileinput-preview fileinput-exists thumbnail"></div>
+              <div>
+                <span class="btn btn-default btn-file">
+                  <span class="fileinput-new">Logo hochladen</span>
+                  <span class="fileinput-exists">Ändern</span>
+                  <input type="file" name="choir[image]" id="choir_image">
+                </span>
+                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Löschen</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- choir name -->
     <div class="col-xs-12 col-sm-6">
       <div class="form-group">
         <div class="row">
@@ -29,6 +49,7 @@
         </div>
       </div>
 
+      <!-- choir website -->
       <div class="form-group">
         <div class="row">
           <div class="col-xs-12">
@@ -37,6 +58,7 @@
         </div>
       </div>
 
+      <!-- choir category -->
       <div class="form-group">
         <div class="row">
           <div class="col-xs-12">
@@ -45,6 +67,7 @@
         </div>
       </div>
 
+      <!-- choir location -->
       <div class="form-group">
         <div class="row">
           <div class="col-xs-12">
@@ -67,6 +90,7 @@
     </div>
   </div>
 
+  <!-- submit -->
   <div class="row">
     <div class="form-group text-center">
       <%= f.submit 'Verschicken', class: 'btn btn-default outline', id: 'add-choir' %>
