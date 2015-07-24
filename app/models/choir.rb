@@ -24,8 +24,14 @@ class Choir < ActiveRecord::Base
   attr_accessor :image
   mount_uploader :image, ImageUploader
 
+  after_create :send_approve_mail
+
   def full_address
     [street_name, house_no, zipcode, city, country].compact.join(', ')
+  end
+
+  def send_approve_mail
+    ApplicationMailer.new_choir_needs_approval(self).deliver_now!
   end
 
   private

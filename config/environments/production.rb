@@ -57,12 +57,26 @@ Rails.application.configure do
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
+  host = 'berliner-choere.herokuapp.com'
+
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = 'http://assets.example.com'
+  # config.action_controller.asset_host =
+  config.action_mailer.asset_host = "https://#{host}"
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.mandrillapp.com',
+    port:                 587,
+    domain:               'berliner-choere.herokuapp.com',
+    user_name:            ENV["mandrill_username"],
+    password:             ENV["mandrill_password"],
+    authentication:       'plain'
+  }
+
+  ActionMailer::Base.delivery_method = :smtp
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
