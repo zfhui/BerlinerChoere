@@ -1,0 +1,9 @@
+Elasticsearch:
+
+To create index:
+Choir.__elasticsearch__.create_index! force: true
+
+And to import data: 
+Choir.import
+
+at rails console.
