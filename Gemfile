@@ -79,3 +79,6 @@ gem 'figaro'
 
 gem 'rmagick'
 gem 'carrierwave'
+
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'

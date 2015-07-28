@@ -1,10 +1,14 @@
 require 'uri'
 
 class Choir < ActiveRecord::Base
+  # elasticsearch
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+  # associations
   belongs_to :category
 
-  default_scope { order('name ASC') }
-
+  # validations
   validates :name,
             presence: true,
             uniqueness: true,
@@ -18,13 +22,18 @@ class Choir < ActiveRecord::Base
   validates :category, presence: true
   validates :street_name, presence: true
 
-  geocoded_by :full_address
-  after_validation :geocode, if: :full_address_changed?
+  # scopes
+  default_scope { order('name ASC') }
 
+  # avatar upload
   attr_accessor :image
   mount_uploader :image, ImageUploader
 
   after_create :send_approve_mail
+
+  # geocoding address
+  geocoded_by :full_address
+  after_validation :geocode, if: :full_address_changed?
 
   def full_address
     [street_name, house_no, zipcode, city, country].compact.join(', ')
@@ -32,6 +41,12 @@ class Choir < ActiveRecord::Base
 
   def send_approve_mail
     ApplicationMailer.new_choir_needs_approval(self).deliver_now!
+  end
+
+  def as_indexed_json(options={})
+    as_json(
+      only: [:name, :category, :zipcode]
+    )
   end
 
   private

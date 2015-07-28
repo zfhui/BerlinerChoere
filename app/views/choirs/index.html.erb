@@ -1,5 +1,20 @@
 <h1><%= @choirs.count %> Chöre</h1>
 
+<section id="search">
+  <%= simple_form_for :query, url: choirs_path, method: :get, html: {class: 'form-vertical'} do |f| %>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-10 col-sm-8 col-sm-offset-1">
+          <%= f.input :query, label: false, input_html: {name: 'query'}, class: "form-control" %>
+        </div>
+        <div class="col-xs-2 col-sm-2">
+          <%= f.submit "Suchen", name: nil, class: 'btn btn-default'%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>
+
 <table class="table table-condensed">
   <thead>
     <tr>

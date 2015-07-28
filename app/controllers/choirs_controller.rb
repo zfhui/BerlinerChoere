@@ -6,7 +6,12 @@ class ChoirsController < ApplicationController
   # GET /choirs
   # GET /choirs.json
   def index
-    @choirs = Choir.all
+    if params[:query].present?
+      @choirs = Choir.search(params[:query]).records
+    else
+      @choirs = Choir.all
+    end
+
   end
 
   # GET /choirs/1
