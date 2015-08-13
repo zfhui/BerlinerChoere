@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe Choir do
-  before { @choir = FactoryGirl.create(:new_choir) }
+  subject(:choir) { FactoryGirl.create(:choir) }
+  let(:geo) { stub(:geocode) }
+  let(:mail) {stub(:send_approve_mail)}
 
-  subject { @choir }
 
   it { should be_valid }
 
@@ -15,52 +16,36 @@ describe Choir do
   it { should validate_presence_of :street_name }
 
   context 'when :name is not present' do
-    before { @choir.name = '' }
+    before { choir.name = '' }
     it { should be_invalid }
   end
 
   context 'when :zipcode is not present' do
-    before { @choir.zipcode = '' }
+    before { choir.zipcode = '' }
     it { should be_invalid }
   end
 
   context 'when :category is not present' do
-    before { @choir.category_id = '' }
+    before { choir.category_id = '' }
     it { should be_invalid }
   end
 
   context 'when :street_name is not present' do
-    before { @choir.street_name = '' }
+    before { choir.street_name = '' }
     it { should be_invalid }
   end
 
-  # # associations
-  # belongs_to :category
-  #
-  # # validations
-  # validates :name,
-  #           presence: true,
-  #           uniqueness: true,
-  #           length: { minimum: 3 }
-  # validates :zipcode,
-  #           presence: true,
-  #           numericality: { only_integer: true },
-  #           inclusion: { in: 10115..14199, message: "nur Berliner PLZ" }
-  # validates :website,
-  #           format: {with: /\A#{URI::regexp}\z/}, if: :website_changed?
-  # validates :category, presence: true
-  # validates :street_name, presence: true
-  #
-  # # scopes
-  # default_scope { order('name ASC') }
-  #
-  # # avatar upload
-  # attr_accessor :image
-  # mount_uploader :image, ImageUploader
-  #
-  # after_create :send_approve_mail
-  #
-  # # geocoding address
-  # geocoded_by :full_address
-  # after_validation :geocode, if: :full_address_changed?
+  it 'calls geocode after validation' do
+    expect(choir).to receive(:geocode)
+    choir.validate
+  end
+
+  context 'new choir application' do
+    let (:new_choir) { FactoryGirl.build(:new_choir) }
+
+    it 'calls send_approve_mail after create' do
+      expect(new_choir).to receive(:send_approve_mail)
+      new_choir.save
+    end
+  end
 end
