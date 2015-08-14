@@ -1,24 +1,17 @@
 body {
-  font-family: 'Open Sans', sans-serif;
-  background: #f5f6f7;
-  color: #000;
-  font-size: 20px;
-  line-height: 36px;
-  text-align: center;
-  font-weight: 300;
+  // font-family: 'Open Sans', sans-serif;
+  // background: #f5f6f7;
+  // color: #000;
+  // font-size: 20px;
+  // line-height: 36px;
+  // text-align: center;
+  // font-weight: 300;
 }
 
 .container-fluid {
   padding-left: 0px;
   padding-right: 0px;
   text-align: center;
-}
-
-a,
-a:hover,
-a:focus {
-  color: #E52165;
-  text-decoration: underline;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,6 +26,12 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 40;
   text-align: left;
   background: transparent;
+}
+
+@media (max-width: $screen-xs) {
+  #logo {
+    height: 50px;
+  }
 }
 
 #logo img {
@@ -97,15 +96,15 @@ li {
   display: inline;
 }
 
-// ---- forms ----
-.form-horizontal {
-  margin: 1.5em auto 1.5em auto;
-}
-.form-horizontal .form-group{
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
+// // ---- forms ----
+// .form-horizontal {
+//   margin: 1.5em auto 1.5em auto;
+// }
+// .form-horizontal .form-group{
+//   margin-left: 0px;
+//   margin-right: 0px;
+// }
+//
 .has-error .form-control {
   border-color: #E52165;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -120,39 +119,4 @@ li {
 
 //---- marker popup ----
 .marker-popup {
-}
-
-//---- button ----
-.btn.outline{
-  background: transparent;
-  padding: 0.3em 0.5em;
-  font-size: large;
-  font-weight: normal;
-  text-transform: none;
-  text-decoration: none;
-  padding: 0.3em 0.5em;
-}
-
-.btn-default.outline {
-  background: transparent;
-  border: 2px solid #E52165;
-  border-radius: 30px;
-  color: #E52165;
-}
-
-.btn-default.outline:hover,
-.btn-default.outline:focus,
-.btn-default.outline:active,
-.btn-default.outline.active,
-.open > .dropdown-toggle.btn-default.outline {
-  background: transparent;
-  color: #E52165;
-  border-color: #E52165;
-}
-.btn-default.outline:active,
-.btn-default.outline.active {
-  background: transparent;
-  border-color: #E52165;
-  color: #E52165;
-  box-shadow: none;
 }

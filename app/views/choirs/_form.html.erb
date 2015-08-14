@@ -8,8 +8,8 @@
   <!-- überprüft checkbox -->
   <% if user_signed_in? %>
     <div class="row">
-      <div class="col-xs-12">
-        <%= f.input :approved, label: "Überprüft", class: "form-control" %>
+      <div class="col-xs-2 col-xs-offset-5">
+        <%= f.input :approved, label: "Überprüfen" %>
       </div>
     </div>
   <% end %>
@@ -26,7 +26,7 @@
               </div>
               <div class="fileinput-preview fileinput-exists thumbnail"></div>
               <div>
-                <span class="btn btn-default btn-file">
+                <span class="btn btn-primary btn-file">
                   <span class="fileinput-new">Logo hochladen</span>
                   <span class="fileinput-exists">Ändern</span>
                   <input type="file" name="choir[image]" id="choir_image">
@@ -41,50 +41,42 @@
 
     <!-- choir name -->
     <div class="col-xs-12 col-sm-6">
-      <div class="form-group">
-        <div class="row">
-          <div class="col-xs-12">
-            <%= f.input :name, label: false, placeholder: '* Name des Chores', required: true, class: 'form-control' %>
-          </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.input :name, label: false, placeholder: '* Name des Chores', required: true %>
         </div>
       </div>
 
       <!-- choir website -->
-      <div class="form-group">
-        <div class="row">
-          <div class="col-xs-12">
-            <%= f.input :website, type: 'url', label: false, placeholder: 'Website: http://...', required: true, class: 'form-control' %>
-          </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.input :website, type: 'url', label: false, placeholder: 'Website: http://...', required: true %>
         </div>
       </div>
 
       <!-- choir category -->
-      <div class="form-group">
-        <div class="row">
-          <div class="col-xs-12">
-            <%= f.association :category, label: false, :include_blank => false, required: true, class: 'form-control' %>
-          </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.association :category, label: false, :include_blank => false, required: true %>
         </div>
       </div>
 
       <!-- choir location -->
-      <div class="form-group">
-        <div class="row">
-          <div class="col-xs-12">
-            <%= f.input :location_name, label: false, placeholder: 'Probenort', class: 'form-control' %>
-          </div>
-          <div class="col-xs-9">
-            <%= f.input :street_name, label: false, placeholder: '* Straße', required: true, class: 'form-control' %>
-          </div>
-          <div class="col-xs-3">
-            <%= f.input :house_no, label: false, placeholder: 'Nr.', class: 'form-control' %>
-          </div>
-          <div class="col-xs-6">
-            <%= f.input :zipcode, type: 'number', label: false, placeholder: '* PLZ', required: true, class: 'form-control' %>
-          </div>
-          <div class="col-xs-6">
-            <%= f.input :city, label: false, disabled: true, placeholder: 'Stadt', class: 'form-control' %>
-          </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.input :location_name, label: false, placeholder: 'Probenort' %>
+        </div>
+        <div class="col-xs-9">
+          <%= f.input :street_name, label: false, placeholder: '* Straße', required: true %>
+        </div>
+        <div class="col-xs-3">
+          <%= f.input :house_no, label: false, placeholder: 'Nr.' %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.input :zipcode, type: 'number', label: false, placeholder: '* PLZ', required: true %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.input :city, label: false, disabled: true, placeholder: 'Stadt' %>
         </div>
       </div>
     </div>
@@ -92,8 +84,8 @@
 
   <!-- submit -->
   <div class="row">
-    <div class="form-group text-center">
-      <%= f.submit 'Verschicken', class: 'btn btn-default outline', id: 'add-choir' %>
+    <div class="text-center">
+      <%= f.submit 'Verschicken', class: 'btn btn-primary btn-round', id: 'add-choir' %>
     </div>
   </div>
 <% end %>
