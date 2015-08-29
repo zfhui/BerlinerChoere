@@ -147,6 +147,8 @@ GEM
     listen (3.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    lockup (1.3.2.1)
+      rails (>= 3, < 5)
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
@@ -307,6 +309,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   launchy
+  lockup
   meta_request
   pg
   puma
