@@ -32,7 +32,8 @@ gem 'devise'
 
 group :production do
   gem 'puma'
-  gem 'rails_12factor', group: :production
+  gem 'rails_12factor'
+  gem 'hide_heroku', '~> 0.0.1'
 end
 
 gem 'lockup'
