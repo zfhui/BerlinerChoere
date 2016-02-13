@@ -22,7 +22,7 @@ class ChoirDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     location_name: Field::String,
-    image: Field::String,
+    image: Field::IconField,
     approved: Field::Boolean,
   }
 
@@ -32,6 +32,7 @@ class ChoirDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :image,
     :category,
     :id,
     :name,
@@ -41,6 +42,7 @@ class ChoirDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :image,
     :category,
     :id,
     :name,
@@ -55,7 +57,6 @@ class ChoirDashboard < Administrate::BaseDashboard
     :created_at,
     :updated_at,
     :location_name,
-    :image,
     :approved,
   ]
 
@@ -63,6 +64,7 @@ class ChoirDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :image,
     :category,
     :name,
     :street_name,
@@ -74,7 +76,6 @@ class ChoirDashboard < Administrate::BaseDashboard
     :latitude,
     :longitude,
     :location_name,
-    :image,
     :approved,
   ]
 

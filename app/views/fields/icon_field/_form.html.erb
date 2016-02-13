@@ -1,0 +1,7 @@
+<%= f.label field.attribute %>
+
+<% if field.url.present? %>
+  <%= image_tag field.url %>
+<% else %>
+  <%= f.file_field field.attribute %>
+<% end %>
