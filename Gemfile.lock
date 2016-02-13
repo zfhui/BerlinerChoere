@@ -306,8 +306,8 @@ DEPENDENCIES
   carrierwave (~> 0.10.0)
   coffee-rails (~> 4.1.0)
   devise (~> 3.5, >= 3.5.6)
-  factory_girl_rails
-  faker
+  factory_girl_rails (~> 4.6)
+  faker (~> 1.6, >= 1.6.1)
   figaro
   font-awesome-sass (~> 4.5)
   geocoder (~> 1.3)
@@ -326,10 +326,10 @@ DEPENDENCIES
   rails (~> 4.2, >= 4.2.5.1)
   rails_12factor
   rmagick (~> 2.15, >= 2.15.4)
-  rspec-rails
+  rspec-rails (~> 3.4, >= 3.4.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  shoulda-matchers
+  shoulda-matchers (~> 3.1, >= 3.1.1)
   simple_form (~> 3.2, >= 3.2.1)
   turbolinks
   uglifier (>= 1.3.0)
