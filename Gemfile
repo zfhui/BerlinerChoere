@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.2'
-# Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'rails', '~> 4.2', '>= 4.2.5.1'
+
+gem 'pg', '~> 0.18.4'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -28,7 +28,21 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'devise'
+gem 'devise', '~> 3.5', '>= 3.5.6'
+
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
+
+gem 'font-awesome-sass', '~> 4.5'
+gem 'bootstrap-sass', '~> 3.3.3'
+gem 'autoprefixer-rails', '~> 6.3', '>= 6.3.3'
+
+gem 'rmagick', '~> 2.15', '>= 2.15.4'
+gem 'carrierwave', '~> 0.10.0'
+
+gem 'elasticsearch-model', '~> 0.1.8'
+gem 'elasticsearch-rails', '~> 0.1.8'
+
+gem 'figaro'
 
 group :production do
   gem 'puma'
@@ -63,18 +77,3 @@ group :test do
   gem 'faker'
   gem 'shoulda-matchers'
 end
-
-gem 'simple_form'
-
-gem "font-awesome-sass"
-gem 'bootstrap-sass', '~> 3.3.3'
-gem 'autoprefixer-rails'
-
-gem 'geocoder'
-gem 'figaro'
-
-gem 'rmagick'
-gem 'carrierwave'
-
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
