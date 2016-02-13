@@ -36,6 +36,8 @@ gem 'font-awesome-sass', '~> 4.5'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'autoprefixer-rails', '~> 6.3', '>= 6.3.3'
 
+gem 'geocoder', '~> 1.3'
+
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
 gem 'carrierwave', '~> 0.10.0'
 
