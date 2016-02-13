@@ -33,9 +33,11 @@ bundle install
 
 ### Continuous Integration
 
-![CodeShip](https://codeship.com/projects/ee7f6910-07cb-0133-d8d3-46a59cb85782/status?branch=master) [Productions](http://berliner-choere.de) Status
+[ ![Codeship Status for zfhui/BerlinerChoere](https://codeship.com/projects/45fac940-b49e-0133-c9d7-4ecff99ea0a3/status?branch=master)](https://codeship.com/projects/133971)
+[Productions](http://berliner-choere.de) Status
 
-![CodeShip](https://codeship.com/projects/ee7f6910-07cb-0133-d8d3-46a59cb85782/status?branch=staging) [Staging](http://berliner-choere-staging.herokuapp.com) Status
+[ ![Codeship Status for zfhui/BerlinerChoere](https://codeship.com/projects/45fac940-b49e-0133-c9d7-4ecff99ea0a3/status?branch=staging)](https://codeship.com/projects/133971)
+[Staging](http://berliner-choere-staging.herokuapp.com) Status
 
 ### Code Quality
 
