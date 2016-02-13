@@ -5,5 +5,4 @@ class HomeController < ApplicationController
     @categories = Category.all.order(:name)
   end
 
-
 end

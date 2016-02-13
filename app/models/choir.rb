@@ -1,9 +1,6 @@
 require 'uri'
 
 class Choir < ActiveRecord::Base
-  # elasticsearch
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
 
   # associations
   belongs_to :category
@@ -29,11 +26,12 @@ class Choir < ActiveRecord::Base
   attr_accessor :image
   mount_uploader :image, ImageUploader
 
+  # callbacks
   after_create :send_approve_mail
+  after_validation :geocode, if: :full_address_changed?
 
   # geocoding address
   geocoded_by :full_address
-  after_validation :geocode, if: :full_address_changed?
 
   def full_address
     [street_name, house_no, zipcode, city, country].compact.join(', ')
