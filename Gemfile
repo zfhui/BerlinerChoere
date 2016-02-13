@@ -41,8 +41,7 @@ gem 'geocoder', '~> 1.3'
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
 gem 'carrierwave', '~> 0.10.0'
 
-gem 'elasticsearch-model', '~> 0.1.8'
-gem 'elasticsearch-rails', '~> 0.1.8'
+gem "administrate", "~> 0.1.3"
 
 gem 'figaro'
 
@@ -55,6 +54,9 @@ end
 gem 'lockup'
 
 group :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
@@ -65,17 +67,16 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  # gem 'spring'
   gem 'guard-rspec'
   gem 'launchy'
 end
 
 group :test do
-  gem 'rspec-rails'
-  gem "factory_girl_rails"
-  gem 'faker'
-  gem 'shoulda-matchers'
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  gem 'factory_girl_rails', '~> 4.6'
+  gem 'faker', '~> 1.6', '>= 1.6.1'
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1',
+    require: false
 end
