@@ -1,6 +1,8 @@
-# Berliner Chöre
+![Berliner Chöre](https://github.com/zfhui/BerlinerChoere/blob/master/app/assets/images/icons/logo.png?raw=true)
 
 This little project aims to map choirs in Berlin.
+
+
 
 ## Content
 
@@ -21,6 +23,13 @@ A short description about this site.
 Login link for the admin and more utility links shows up, after the log in.
 
 ## Development Setup
+
+```
+rvm install ruby-2.3.0
+gem install bundler
+bundle install
+
+```
 
 ### Continuous Integration
 
