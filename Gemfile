@@ -43,9 +43,6 @@ gem 'carrierwave', '~> 0.10.0'
 
 gem "administrate", "~> 0.1.3"
 
-gem 'elasticsearch-model', '~> 0.1.8'
-gem 'elasticsearch-rails', '~> 0.1.8'
-
 gem 'figaro'
 
 group :production do
