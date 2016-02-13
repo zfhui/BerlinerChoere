@@ -9,7 +9,9 @@ module Admin
     before_filter :authenticate_admin
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      unless current_user && access_whitelist
+        redirect_to root_url, alert: 'Not authorized.'
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
@@ -17,5 +19,11 @@ module Admin
     # def records_per_page
     #   params[:per_page] || 20
     # end
+
+    private
+
+    def access_whitelist
+      current_user.try(:admin?)
+    end
   end
 end
