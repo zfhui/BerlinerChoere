@@ -26,6 +26,8 @@ Login link for the admin and more utility links shows up, after the log in.
 
 ```
 rvm install ruby-2.3.0
+brew install postgresql
+brew install imagemagick@6
 gem install bundler
 bundle install
 
