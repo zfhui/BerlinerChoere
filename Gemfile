@@ -38,7 +38,7 @@ gem 'autoprefixer-rails', '~> 6.3', '>= 6.3.3'
 
 gem 'geocoder', '~> 1.3'
 
-gem 'rmagick', '~> 2.15', '>= 2.15.4'
+gem 'rmagick', '~> 2.16'
 gem 'carrierwave', '~> 0.10.0'
 
 gem "administrate", "~> 0.1.3"
